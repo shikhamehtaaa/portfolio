@@ -16,12 +16,12 @@
             background-color: #ffffff; 
             color: #3f3f46; 
         }
-        /* Custom styles for the scroll-to-top button */
+        
         #scrollToTopBtn {
             display: none; 
-            position: fixed;
-            bottom: 20px; 
-            right: 20px; 
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Place the button at the bottom */
+            right: 20px; /* Place the button at the right */
             z-index: 1000; 
             border-radius: 9999px; /* Fully rounded */
             padding: 0.75rem 1rem; /* Padding for the button */
@@ -64,14 +64,15 @@
             scroll-margin-top: 5rem; 
         }
         
-        
+        /* Updated #hero styling for vertical centering using grid for small screens */
         #hero {
-            min-height: calc(100vh - 4rem); 
+            min-height: calc(100vh - 4rem); /* Ensure hero takes full viewport height minus header */
             display: grid; /* Use CSS Grid for centering on smaller screens */
-            place-items: center; 
-            text-align: center; 
+            place-items: center; /* Centers content both vertically and horizontally */
+            text-align: center; /* Centers text for smaller screens */
             padding-left: 1.5rem; /* px-6 from HTML */
             padding-right: 1.5rem; /* px-6 from HTML */
+            /* Ensure no conflicting padding/margin from previous attempts */
             padding-top: 0; 
             padding-bottom: 0;
             margin-bottom: 0; 
@@ -79,15 +80,15 @@
         @media (min-width: 768px) { /* Medium screens and up: Revert to flex for row layout */
             #hero {
                 display: flex; 
-                flex-direction: row; 
-                justify-content: space-between;
-                align-items: center; 
-                text-align: left; 
+                flex-direction: row; /* Layout content and image side-by-side */
+                justify-content: space-between; /* Spreads content and image */
+                align-items: center; /* Vertically align items in the row */
+                text-align: left; /* Aligns text left on larger screens */
             }
-            #hero .text-center {
+            #hero .text-center { /* Re-align text left within the text-block */
                 text-align: left;
             }
-            #hero .flex.justify-center.md\:justify-start { 
+            #hero .flex.justify-center.md\:justify-start { /* Re-align icons left within the icon block */
                 justify-content: flex-start;
             }
         }
