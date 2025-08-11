@@ -13,19 +13,19 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* Ensures the entire background is white */
-            color: #3f3f46; /* Darker, slightly warm gray text for contrast */
+            background-color: #ffffff;
+            color: #3f3f46; 
         }
         /* Custom styles for the scroll-to-top button */
         #scrollToTopBtn {
-            display: none; /* Hidden by default */
-            position: fixed; /* Fixed position */
-            bottom: 20px; /* Place the button at the bottom */
-            right: 20px; /* Place the button at the right */
-            z-index: 1000; /* Make sure it's above other content */
-            border-radius: 9999px; /* Fully rounded */
-            padding: 0.75rem 1rem; /* Padding for the button */
-            background-color: #7c7c7c; /* Neutral gray for subtle button */
+            display: none; 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            z-index: 1000; 
+            border-radius: 9999px; 
+            padding: 0.75rem 1rem; 
+            background-color: #7c7c7c;
             color: white;
             border: none;
             cursor: pointer;
@@ -65,9 +65,30 @@
         }
         
         #hero {
-            min-height: calc(100vh - 4rem); 
-            padding-bottom: 3rem; /
+            min-height: calc(100vh - 4rem); /* Ensure hero takes full viewport height minus header */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding-top: 0; 
+            padding-bottom: 0;
             margin-bottom: 0; 
+            padding-left: 1.5rem; 
+            padding-right: 1.5rem;
+        }
+        @media (min-width: 768px) { /* Medium screens and up */
+            #hero {
+                flex-direction: row; 
+                justify-content: space-between;
+                text-align: left; 
+            }
+            #hero .text-center {
+                text-align: left;
+            }
+            #hero .flex.justify-center.md\:justify-start {
+                justify-content: flex-start;
+            }
         }
         
         main .container {
@@ -77,8 +98,8 @@
         /* Responsive iframe styling for Google Forms */
         .google-form-container iframe {
             width: 100%;
-            height: 100%; /* Take full height of container */
-            min-height: 650px; 
+            height: 100%; 
+            min-height: 850px;
         }
     </style>
 </head>
@@ -100,8 +121,8 @@
 
     <main class="container mx-auto px-4 py-8 mt-8">
 
-        <!-- Hero Section - Landing Page -->
-        <section id="hero" class="flex flex-col md:flex-row items-center justify-center md:justify-between py-12 px-6 relative">
+        <!-- Hero Section - Landing Page (Adjusted for vertical centering) -->
+        <section id="hero" class="flex flex-col md:flex-row items-center justify-center md:justify-between px-6 relative">
             <div class="text-center md:text-left md:w-2/3 mb-6 md:mb-0">
                 <h1 class="text-4xl sm:text-5xl font-bold text-neutral-900 mb-2">Shikha Mehta</h1>
                 <p class="text-lg sm:text-xl text-neutral-600 mb-4">Let's get creative with data!</p>
@@ -183,7 +204,7 @@
             <h2 class="text-3xl font-semibold text-neutral-800 mb-6">Let's get in touch!</h2>
             <!-- Google Form Embed -->
             <div class="max-w-md mx-auto google-form-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdAqa2GyzJltXw_l9eMakvLxUsr3CdEam-h8vvyHdP-ZcTm_A/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdAqa2GyzJltXw_l9eMakvLxUsr3CdEam-h8vvyHdP-ZcTm_A/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
             </div>
         </section>
 
@@ -210,7 +231,7 @@
         // Get the button
         let scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-        
+        // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
 
         function scrollFunction() {
@@ -221,9 +242,10 @@
             }
         }
 
+        // When the user clicks on the button, scroll to the top of the document
         scrollToTopBtn.addEventListener('click', function() {
             document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         });
     </script>
 </body>
